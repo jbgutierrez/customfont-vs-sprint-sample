@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+for img in images/font/*.svg; do
+  file=$(basename $img)
+  svgexport $img images/sprite/${file/.svg/.png} 12:
+  svgexport $img images/sprite/${file/.svg/@2x.png} 24:
+done
+
+fontcustom compile
+grunt sprite
